@@ -15,5 +15,5 @@ if(isset($data->message->text)){
 
         $chat_id = $data->message->chat->id;
         $message_id = $data->message->message_id;
-        $bot->do('sendMessage', "chat_id=$chat_id&text=$text&reply_to_message_id=$message_id");
+        $bot->do('sendMessage', "chat_id=$chat_id&text=hi&reply_to_message_id=$message_id");
 }
