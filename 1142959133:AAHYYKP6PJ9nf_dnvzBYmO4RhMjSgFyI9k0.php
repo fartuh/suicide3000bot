@@ -8,9 +8,7 @@ $data = json_decode($json);
 $triggers = require('triggers.php');
 $answers = require('answers.php');
 
-$maxKeyAnswers = max(array_keys($answers));
-
-$bot = new Bot(URL);
+$bot = new Bot(URL, $triggers, $answers);
 if(isset($data->message->text)){
     $trigger = $bot->checkTrigger($data->message->text);
     if($trigger){
