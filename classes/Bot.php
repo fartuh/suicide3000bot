@@ -4,7 +4,7 @@ class Bot
 {
     private url;
 
-    public function __construct($url){
+    function __construct($url){
         $this->url = $url;
     }
 
