@@ -5,9 +5,12 @@ require('classes/Bot.php');
 
 $json = file_get_contents('php://input');
 $data = json_decode($json); 
+$triggers = require('triggers.php');
 
 $bot = new Bot(URL);
-if(isset($data->message->text) && $data->message->text != '/start' && $data->message->text == "Мне грустно"){
-    $chat_id = $data->message->chat->id;
-    $bot->do('sendMessage', "chat_id=$chat_id&text=Суицид - выход");
+foreach($triggers as $trigger){
+    if(isset($data->message->text) && $data->message->text != '/start' && $data->message->text == $trigger){
+        $chat_id = $data->message->chat->id;
+        $bot->do('sendMessage', "chat_id=$chat_id&text=Суицид - выход");
+    }
 }
