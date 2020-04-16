@@ -6,9 +6,8 @@ define('URL', "https://api.telegram.org/bot1142959133:AAHYYKP6PJ9nf_dnvzBYmO4RhM
 $json = file_get_contents('php://input');
 $data = json_decode('{}'); 
 
-exit();
 $bot = new Bot(URL);
-
+exit();
 if(isset($data->message->text) && $data->message->text != '/start'){
     $chat_id = $data->message->chat->id;
     $bot->do('SendMessage', "chat_id=$chat_id&text=Пошел ты нахуй мусор");
