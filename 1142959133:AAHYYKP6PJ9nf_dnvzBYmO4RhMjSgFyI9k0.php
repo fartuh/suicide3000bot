@@ -7,7 +7,7 @@ require('classes/Bot.php');
 $json = file_get_contents('php://input');
 $data = json_decode($json); 
 
-$bot = new Bot("this");
+$bot = new Bot(URL);
 if(isset($data->message->text) && $data->message->text != '/start'){
     $chat_id = $data->message->chat->id;
     $bot->do('SendMessage', "chat_id=$chat_id&text=Пошел ты нахуй мусор");
