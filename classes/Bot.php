@@ -16,7 +16,7 @@ class Bot
     }
 
     public function checkTrigger($message){
-        foreach($triggers as $trigger){
+        foreach($this->triggers as $trigger){
             if($message == $triger){
                 return true;
             }    
