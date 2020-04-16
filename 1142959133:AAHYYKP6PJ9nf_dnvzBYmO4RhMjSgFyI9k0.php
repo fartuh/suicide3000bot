@@ -11,11 +11,13 @@ $answers = require('answers.php');
 $maxKeyAnswers = max(array_keys($answers));
 
 $bot = new Bot(URL);
-foreach($triggers as $trigger){
-    if(isset($data->message->text) && $data->message->text != '/start' && $data->message->text == $trigger){
+if(isset($data->message->text)){
+    $trigger = $bot->checkTrigger($data->message->text);
+    if($trigger){
+        $text = $bot->getAnswer();
+
         $chat_id = $data->message->chat->id;
         $message_id = $data->message->message_id;
-        $text = $answers[rand(0,$maxKeyAnswers)];
         $bot->do('sendMessage', "chat_id=$chat_id&text=$text&reply_to_message_id=$message_id");
     }
 }
