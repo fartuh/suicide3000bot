@@ -2,7 +2,7 @@
 
 class Bot
 {
-    private url;
+    private $url;
 
     function __construct($url){
         $this->url = $url;
