@@ -12,7 +12,7 @@ $bot = new Bot(URL);
 foreach($triggers as $trigger){
     if(isset($data->message->text) && $data->message->text != '/start' && $data->message->text == $trigger){
         $chat_id = $data->message->chat->id;
-        $text = $answers[rand(0,5)];
+        $text = $answers[rand(0,3)];
         $bot->do('sendMessage', "chat_id=$chat_id&text=$text");
     }
 }
