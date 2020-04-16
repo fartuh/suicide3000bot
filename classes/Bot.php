@@ -7,7 +7,7 @@ class Bot
     function __construct($url, $triggers, $answers){
         $this->url = $url;
         $this->triggers = $triggers;
-        $this->url = $answers;
+        $this->answers = $answers;
     }
 
     public function do($method, $params = ""){

@@ -9,7 +9,7 @@ $triggers = require('triggers.php');
 $answers = require('answers.php');
 
 $bot = new Bot(URL, $triggers, $answers);
-//if(isset($data->message->text)){
+if(isset($data->message->text)){
     $trigger = $bot->checkTrigger($data->message->text);
     if($trigger){
         $text = $bot->getAnswer();
@@ -18,4 +18,4 @@ $bot = new Bot(URL, $triggers, $answers);
         $message_id = $data->message->message_id;
         $bot->do('sendMessage', "chat_id=$chat_id&text=$text&reply_to_message_id=$message_id");
     }
-//}
+}
